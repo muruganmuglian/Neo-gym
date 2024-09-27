@@ -1,0 +1,23 @@
+pipeline {
+  agent any
+  
+   stages ('build')
+steps{
+sh "mvn clean package'
+}
+post {
+ success {
+   echo "Archiving the artifacts"
+   archiving the artifacts": ' **/target/*.war '
+  }
+  }
+ stage ('Deploy to tomcat server')
+steps{
+deploy adaptors deploy adapters: [tomcat7(credentialsId: 'f4d1c554-4f42-4e06-b4be-6008060d1865', path: '', url: 'https://tomcat.apache.org/tomcat-7.0-doc/deployer-howto.html')], contextPath: 'C:\\Users\\MURUGAN\\Downloads\\apache-tomcat-7.0.42', war: '**/.war'
+ }
+}
+}
+}
+
+
+
