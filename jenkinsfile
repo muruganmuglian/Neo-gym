@@ -4,9 +4,6 @@ pipeline {
 maven 'local_maven'
 }
    stages ('build')
-steps{
-sh "mvn clean package'
-}
 post {
  success {
    echo "Archiving the artifacts"
